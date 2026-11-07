@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>MeuMed · Clínica Cabeça &amp; Pescoço</title>
+  <meta name="description" content="Agende consultas em tempo real, pague com Pix ou cartão, faça check-in online, envie exames e entre na teleconsulta.">
+  <meta name="theme-color" content="#0B7A75" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0C1A1C" media="(prefers-color-scheme: dark)">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="MeuMed">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <div class="app">
+    <nav class="nav" id="nav" aria-label="Navegação principal">
+      <a class="brand" href="#/inicio" aria-label="MeuMed, ir para o início">
+        <img src="icons/icon.svg" alt="" width="36" height="36">
+        <span><strong>MeuMed</strong><small>Clínica Cabeça &amp; Pescoço</small></span>
+      </a>
+      <ul class="nav-list" role="list">
+        <li><a href="#/inicio" data-nav="inicio"><span data-icon="home"></span><span>Início</span></a></li>
+        <li><a href="#/agendar" data-nav="agendar"><span data-icon="calendar"></span><span>Agendar</span></a></li>
+        <li><a href="#/consultas" data-nav="consultas"><span data-icon="clipboard"></span><span>Consultas</span></a></li>
+        <li><a href="#/chat" data-nav="chat"><span data-icon="chat"></span><span>Chat</span></a></li>
+        <li><a href="#/mais" data-nav="mais"><span data-icon="user"></span><span>Perfil</span></a></li>
+      </ul>
+      <div class="nav-section desk-only">
+        <p class="nav-label">Gestão da clínica</p>
+        <ul class="nav-list" role="list">
+          <li><a href="#/relatorio" data-nav="relatorio"><span data-icon="chart"></span><span>Relatório contábil</span></a></li>
+          <li><a href="#/proximas-ondas" data-nav="proximas-ondas"><span data-icon="rocket"></span><span>Próximas ondas</span></a></li>
+        </ul>
+      </div>
+      <p class="nav-foot desk-only">Protótipo MVP · Onda 1<br>Dados fictícios</p>
+    </nav>
+
+    <div class="shell">
+      <header class="topbar">
+        <a class="brand brand-mobile" href="#/inicio" aria-label="MeuMed, ir para o início">
+          <img src="icons/icon.svg" alt="" width="32" height="32">
+          <strong>MeuMed</strong>
+        </a>
+        <span class="net-chip" id="net-chip" role="status"></span>
+        <div class="topbar-actions">
+          <button class="icon-btn" id="install-btn" hidden aria-label="Instalar o aplicativo"><span data-icon="download"></span><span class="lbl">Instalar</span></button>
+          <a class="icon-btn" href="#/mais#lembretes" id="bell" aria-label="Lembretes"><span data-icon="bell"></span><span class="badge" id="bell-badge" hidden></span></a>
+          <button class="icon-btn a11y-trigger" id="a11y-open" aria-haspopup="dialog" aria-controls="a11y-panel" aria-label="Abrir ferramentas de acessibilidade (atalho Alt+A)"><span data-icon="a11y"></span><span class="lbl">Acessibilidade</span></button>
+        </div>
+      </header>
+      <main id="main" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <!-- Painel de acessibilidade -->
+  <div class="a11y-backdrop" id="a11y-backdrop" hidden></div>
+  <section class="a11y-panel" id="a11y-panel" role="dialog" aria-modal="true" aria-labelledby="a11y-title" hidden>
+    <div class="a11y-head">
+      <h2 id="a11y-title"><span data-icon="a11y"></span> Acessibilidade</h2>
+      <button class="icon-btn" id="a11y-close" aria-label="Fechar painel de acessibilidade"><span data-icon="x"></span></button>
+    </div>
+    <div class="a11y-body">
+      <fieldset class="a11y-group">
+        <legend>Tamanho do texto</legend>
+        <div class="stepper">
+          <button class="btn btn-ghost" data-a11y="smaller" aria-label="Diminuir texto">A−</button>
+          <output id="a11y-scale" aria-live="polite">100%</output>
+          <button class="btn btn-ghost" data-a11y="bigger" aria-label="Aumentar texto">A+</button>
+        </div>
+      </fieldset>
+      <fieldset class="a11y-group">
+        <legend>Tema</legend>
+        <div class="seg" role="radiogroup" aria-label="Tema de cores">
+          <button role="radio" data-theme-opt="system">Automático</button>
+          <button role="radio" data-theme-opt="light">Claro</button>
+          <button role="radio" data-theme-opt="dark">Escuro</button>
+        </div>
+      </fieldset>
+      <div class="a11y-toggles">
+        <button class="toggle" data-toggle="contrast" aria-pressed="false"><span data-icon="contrast"></span><span>Alto contraste</span></button>
+        <button class="toggle" data-toggle="spacing" aria-pressed="false"><span data-icon="text"></span><span>Espaçamento para leitura (dislexia)</span></button>
+        <button class="toggle" data-toggle="links" aria-pressed="false"><span data-icon="link"></span><span>Destacar links e botões</span></button>
+        <button class="toggle" data-toggle="guide" aria-pressed="false"><span data-icon="ruler"></span><span>Guia de leitura</span></button>
+        <button class="toggle" data-toggle="cursor" aria-pressed="false"><span data-icon="cursor"></span><span>Cursor ampliado</span></button>
+        <button class="toggle" data-toggle="motion" aria-pressed="false"><span data-icon="pause"></span><span>Pausar animações</span></button>
+        <button class="toggle" data-toggle="grayscale" aria-pressed="false"><span data-icon="eye"></span><span>Escala de cinza (daltonismo)</span></button>
+        <button class="toggle" data-toggle="libras" aria-pressed="false"><span data-icon="hand"></span><span>Tradutor de Libras (VLibras)</span></button>
+      </div>
+      <fieldset class="a11y-group">
+        <legend>Leitor de voz</legend>
+        <div class="row-2">
+          <button class="btn btn-primary" id="tts-read"><span data-icon="volume"></span> Ler esta tela</button>
+          <button class="btn btn-ghost" id="tts-stop"><span data-icon="stop"></span> Parar</button>
+        </div>
+        <button class="toggle" data-toggle="clickread" aria-pressed="false"><span data-icon="volume"></span><span>Ouvir o texto ao tocar</span></button>
+      </fieldset>
+      <button class="btn btn-ghost btn-block" id="a11y-reset"><span data-icon="refresh"></span> Restaurar padrões</button>
+      <p class="hint">Atalho: <kbd>Alt</kbd> + <kbd>A</kbd> abre este painel. Suas preferências ficam salvas neste aparelho.</p>
+    </div>
+  </section>
+
+  <div class="reading-guide" id="reading-guide" aria-hidden="true"></div>
+  <div class="toasts" id="toasts" aria-live="polite" aria-atomic="false"></div>
+  <div class="sr-only" id="announcer" aria-live="assertive"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

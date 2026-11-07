@@ -1,0 +1,27 @@
+{
+  "id": "./",
+  "name": "MeuMed · Clínica Cabeça & Pescoço",
+  "short_name": "MeuMed",
+  "description": "Agende, pague, faça check-in, envie exames e faça teleconsulta com a sua clínica, tudo em um só app.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "./#/inicio",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "orientation": "any",
+  "background_color": "#F2F7F8",
+  "theme_color": "#0B7A75",
+  "categories": ["medical", "health", "lifestyle"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "Agendar consulta", "short_name": "Agendar", "url": "./#/agendar", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Minhas consultas", "short_name": "Consultas", "url": "./#/consultas", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Chat com assistente IA", "short_name": "Chat", "url": "./#/chat", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}
